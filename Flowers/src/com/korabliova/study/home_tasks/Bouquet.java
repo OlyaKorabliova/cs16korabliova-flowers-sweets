@@ -6,7 +6,7 @@ import java.util.Arrays;
  * Created by Olia on 03.10.2016.
  */
 
-public class Bouquet extends Flower{
+public class Bouquet{
     
     // class of our bouquet
     
