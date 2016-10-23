@@ -4,35 +4,29 @@ public class Main {
 
     public static void main(String[] args) {
 	// write your code here
-        Tulips tul1 = new Tulips(10, 20.75, 3, "red");
-        Tulips tul2 = new Tulips(5, 12, 4, "yellow");
-        Tulips tul3 = new Tulips(8, 18, 1, "blue");
+        FlowerSpec spec1 = new FlowerSpec(FlowerType.TULIP, 5, FlowerColor.RED, 12, 6.8);
+        FlowerSpec spec2 = new FlowerSpec(FlowerType.ROSE, 4, FlowerColor.BLUE, 8, 18);
+        FlowerSpec spec3 = new FlowerSpec(FlowerType.CHAMOMILE, 5, FlowerColor.YELLOW, 10, 7.9);
+        FlowerSpec spec4 = new FlowerSpec(FlowerType.TULIP, 3, FlowerColor.WHITE, 0, 7);
 
-        Roses rose1 = new Roses(15, 25, 5, "white");
-        Roses rose2 = new Roses(12, 20, 4, "yellow");
-        Roses rose3 = new Roses(15, 25, 3, "red");
-
-        Chamomiles cham1 = new Chamomiles(13.4, 7.5, 4, "white");
-        Chamomiles cham2 = new Chamomiles(10.5, 5.5, 0, "pink");
-        Chamomiles cham3 = new Chamomiles(17, 10, 5, "blue");
-
+        OneFlower flw1 = new OneFlower(spec1);
+        OneFlower flw2 = new OneFlower(spec2);
+        OneFlower flw3 = new OneFlower(spec3);
+        OneFlower flw4 = new OneFlower(spec4);
         Bouquet bouquet = new Bouquet();
-        bouquet.addFlower(tul1);
-        bouquet.addFlower(rose1);
-        bouquet.addFlower(cham3);
-        bouquet.addFlower(tul2);
-        bouquet.addFlower(tul3);
-        bouquet.addFlower(cham1);
-        bouquet.addFlower(rose2);
-        bouquet.addFlower(tul1);
-        bouquet.addFlower(cham2);
-        bouquet.addFlower(rose3);
-        bouquet.addFlower(rose1);
+        bouquet.addFlower(flw1, flw2, flw4, flw3);
+
         System.out.println(bouquet);
+
         System.out.println(bouquet.countPrice());
         System.out.println(bouquet.findFlowerByStemSize(0, 1));
         System.out.println(bouquet.findFlowerByStemSize(0, 15));
         System.out.println(bouquet.sortFlowers());
+
+        System.out.println(bouquet.search(new FlowerSpec(FlowerType.NO_TYPE, 4, FlowerColor.NO_COLOR, 0, 0)));
+        System.out.println(bouquet.search(new FlowerSpec(FlowerType.NO_TYPE, 5, FlowerColor.NO_COLOR, 0, 0)));
+        System.out.println(bouquet.search(new FlowerSpec(FlowerType.TULIP, 0, FlowerColor.NO_COLOR, 0, 0)));
+
 
     }
 }

@@ -4,53 +4,60 @@ package com.korabliova.study.home_tasks;
  * Created by Olia on 03.10.2016.
  */
 public class Flower {
-    protected String name = "";
-    protected double stemSize = 10;
-    protected double price = 20;
-    protected String color = "";
-    protected int freshness = 5;
+    protected FlowerSpec spec;
 
-    public int getFreshness() {
-        return freshness;
+    public FlowerSpec getSpec() {
+        return spec;
     }
 
-    public void setFreshness(int freshness) {
-        this.freshness = freshness;
+    public Flower(FlowerSpec spec) {
+        this.spec = spec;
     }
 
-    public String getName() {
-        return name;
-    }
 
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getColor() {
-        return color;
-    }
-
-    public void setColor(String color) {
-        this.color = color;
-    }
-
-    public double getPrice() {
-        return price;
-    }
-
-    public void setPrice(double price) {
-        this.price = price;
+    public void setType(FlowerType type) {
+        spec.setType(type);
     }
 
     public void setStemSize(double stemSize) {
-        this.stemSize = stemSize;
+        spec.setStemSize(stemSize);
+    }
+
+    public void setPrice(double price) {
+        spec.setPrice(price);
+    }
+
+    public void setColor(FlowerColor color) {
+        spec.setColor(color);
+    }
+
+    public void setFreshness(int freshness) {
+        spec.setFreshness(freshness);
+    }
+
+    public FlowerType getType() {
+        return spec.getType();
+    }
+
+    public int getFreshness() {
+        return spec.getFreshness();
+    }
+
+    public FlowerColor getColor() {
+        return spec.getColor();
+    }
+
+    public double getPrice() {
+        return spec.getPrice();
     }
 
     public double getStemSize() {
-        return stemSize;
+        return spec.getStemSize();
     }
 
-    public String toString(){
-        return this.name;
+    public String toString() {
+        return spec.getColor().toString() + " " + spec.getType().toString();
     }
+
+    //abstract public boolean hasSpikes();
 }
